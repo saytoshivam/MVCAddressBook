@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVCAddressBook</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+   <link href="~/css/address-book-style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <h1 class="logo-text m-0" id="test">Address Book</h1>
+    </header>
+    <nav class="d-flex justify-content-between">
+        <div class="nav-links-container p-0 m-0">
+            <ul class="p-0 m-0 nav text-uppercase font-size-md font-wt-1000">
+                <li class="home nav-item p-2 pl-3" onclick="homePage()">
+                    <a asp-area="" asp-controller="Contacts" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item p-2 pl-3 add-contact">
+                    <a asp-area="" asp-controller="Contacts" asp-action="Create">+Add</a>
+                </li>
+            </ul>
+        </div>
+        <div class="my-1 mr-3">
+            <img src="~/images/blog-icon.png" alt="image failed to load" />
+        </div>
+    </nav>
+
+    <div class="fluid-container d-flex m-0">
+        <div class="col-md-4">
+            <h4 class="text-uppercase pt-4 pb-3 mb-0 contact">Contacts</h4>
+            <div id="ContactList"></div>
+        </div>
+        <div class="col-md-6 ml-4 p-0">
+            <main role="main" class="col-md-12 p-0">
+                @RenderBody()
+            </main>
+        </div>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

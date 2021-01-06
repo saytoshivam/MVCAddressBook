@@ -1,0 +1,29 @@
+﻿@model MVCAddressBook.Models.Contact
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="show-contact-details col-md-10 mt-4 ml-5 d-block">
+    <div class="d-flex justify-content-between ">
+        <h1> @Html.DisplayFor(model => model.Name)</h1>
+        <div class="mt-2">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="edit-contact ml-5">
+                Edit
+            </a>
+            <a  asp-action="Delete" asp-route-id="@Model.Id" class="delete-contact mr-3">
+                Delete
+            </a>
+        </div>
+    </div>
+    <p> Email:  @Html.DisplayFor(model => model.Email)</p>
+    <p>
+        Mobile:  @Html.DisplayFor(model => model.PhoneNumber)
+        <br>
+        Landline: @Html.DisplayFor(model => model.Landline)
+    </p>
+    <p> Website: @Html.DisplayFor(model => model.Website) </p>
+    <div class="d-flex">
+        @Html.DisplayNameFor(model => model.Address): @Html.DisplayFor(model => model.Address)
+    </div>
+</div>
